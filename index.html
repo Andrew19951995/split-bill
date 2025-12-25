@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.2">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000; min-height: 14.0px}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="zh-TW"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;分帳系統&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.custom-scrollbar::-webkit-scrollbar { width: 4px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body class="bg-slate-100 p-4 md:p-8 min-h-screen font-sans text-slate-900"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="max-w-5xl mx-auto"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="flex flex-col md:flex-row justify-between items-center mb-6 gap-4 border-b pb-4 border-slate-200"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h1 class="text-3xl font-black text-indigo-600 tracking-tight"&gt;分帳系統&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button onclick="clearAllData()" class="text-xs bg-red-50 text-red-500 px-3 py-1.5 rounded-full hover:bg-red-500 hover:text-white transition-all font-bold shadow-sm"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;i class="fas fa-trash-sweep mr-1"&gt;&lt;/i&gt; 清空所有資料</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="grid grid-cols-1 lg:grid-cols-12 gap-8"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="lg:col-span-5 space-y-6"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;h2 class="text-lg font-bold mb-4 flex items-center text-slate-700"&gt;&lt;i class="fas fa-users mr-2 text-indigo-500"&gt;&lt;/i&gt; 成員設定&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="flex gap-2"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;input id="userName" type="text" placeholder="輸入成員姓名" class="border p-2.5 rounded-xl flex-grow focus:ring-2 focus:ring-indigo-300 outline-none text-sm bg-slate-50 border-slate-200"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;button onclick="addUser()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-xl transition-all shadow-md active:scale-95 text-sm font-bold"&gt;新增&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div id="userList" class="mt-4 flex flex-wrap gap-2"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;h2 class="text-lg font-bold mb-4 flex items-center text-slate-700"&gt;&lt;i class="fas fa-plus-circle mr-2 text-emerald-500"&gt;&lt;/i&gt; 新增款項&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="space-y-4"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;input id="billDesc" type="text" placeholder="款項項目名稱" class="border p-2.5 rounded-xl w-full text-sm bg-slate-50 border-slate-200"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="relative"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;span class="absolute left-3 top-2.5 text-emerald-600 font-bold"&gt;$&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;input id="totalAmountInput" type="number" oninput="autoDistribute()" placeholder="輸入總金額" class="border pl-8 p-2.5 rounded-xl w-full font-black text-emerald-600 bg-slate-50 border-slate-200"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;label class="block text-[10px] font-black text-slate-400 mb-1 uppercase tracking-tighter"&gt;付款人&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;select id="payerSelect" class="border p-2.5 rounded-xl w-full bg-slate-50 border-slate-200 text-sm focus:ring-2 focus:ring-indigo-300 outline-none"&gt;&lt;/select&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div id="splitSection" class="border-t border-slate-100 pt-4 text-center"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;p class="text-[10px] font-black text-slate-400 mb-3 uppercase tracking-widest text-center"&gt;分攤參與者 (勾選平分)&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div id="splitInputs" class="grid grid-cols-1 gap-2 text-left"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;button onclick="addTransaction()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white py-3.5 rounded-2xl font-black shadow-lg shadow-emerald-100 transition-all transform active:scale-95"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>新增此筆款項</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="lg:col-span-7 space-y-6"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;h2 class="text-lg font-bold mb-4 flex items-center text-slate-700"&gt;&lt;i class="fas fa-history mr-2 text-amber-500"&gt;&lt;/i&gt; 已新增的款項紀錄&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div id="transactionHistory" class="space-y-4 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;p class="text-slate-400 text-center py-8 text-sm italic"&gt;目前尚未有任何紀錄&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 ring-4 ring-indigo-50"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="flex justify-between items-center mb-4"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;h2 class="text-lg font-bold flex items-center text-slate-700"&gt;&lt;i class="fas fa-receipt mr-2 text-purple-500"&gt;&lt;/i&gt; 分帳結果&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;button id="copyBtn" onclick="copyToLine()" class="hidden text-xs bg-emerald-100 text-emerald-700 px-3 py-1.5 rounded-lg hover:bg-emerald-200 font-bold transition-all items-center"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;i class="fab fa-line mr-1 text-base"&gt;&lt;/i&gt; 複製結果至 LINE</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;button onclick="calculateSettlement()" class="bg-indigo-600 hover:bg-indigo-700 text-white py-3.5 rounded-2xl font-black w-full mb-6 shadow-xl shadow-indigo-100 transition-all active:scale-[0.98]"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>更新分帳結果</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div id="resultOutput" class="space-y-3"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let users = JSON.parse(localStorage.getItem('split_users')) || [];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let transactions = JSON.parse(localStorage.getItem('split_trans')) || [];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let editingId = null;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let lastResultText = "";</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>window.onload = () =&gt; { updateUI(); renderHistory(); };</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function saveData() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>localStorage.setItem('split_users', JSON.stringify(users));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>localStorage.setItem('split_trans', JSON.stringify(transactions));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function clearAllData() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if(confirm("確定要清空所有資料嗎？")) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>localStorage.clear();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>users = []; transactions = []; editingId = null;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>updateUI(); renderHistory();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.getElementById('resultOutput').innerHTML = '';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.getElementById('copyBtn').classList.add('hidden');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function addUser() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const name = document.getElementById('userName').value.trim();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (name &amp;&amp; !users.includes(name)) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>users.push(name); saveData(); updateUI();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.getElementById('userName').value = '';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function updateUI() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>document.getElementById('userList').innerHTML = users.map(u =&gt;<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>`&lt;span class="bg-slate-100 text-slate-600 px-3 py-1.5 rounded-lg text-xs font-bold border border-slate-200 shadow-sm"&gt;${u}&lt;/span&gt;`</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>).join('');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const payerSelect = document.getElementById('payerSelect');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>payerSelect.innerHTML = users.map(u =&gt; `&lt;option value="${u}"&gt;${u}&lt;/option&gt;`).join('');</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const splitDiv = document.getElementById('splitInputs');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>splitDiv.innerHTML = users.map(u =&gt; `</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="flex items-center justify-between bg-slate-50 p-2.5 rounded-xl border border-slate-100"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="flex items-center gap-3"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;input type="checkbox" id="check-${u}" data-user="${u}" checked onchange="autoDistribute()" class="w-4 h-4 rounded text-indigo-600"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;span class="text-sm font-medium text-slate-600"&gt;${u}&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;input type="number" id="amt-${u}" data-user="${u}" class="split-amt border-b border-slate-200 w-20 text-right text-sm outline-none bg-transparent" placeholder="0"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>`).join('');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function autoDistribute() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const total = parseFloat(document.getElementById('totalAmountInput').value) || 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const checkedBoxes = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).filter(el =&gt; el.id.startsWith('check-'));</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>users.forEach(u =&gt; document.getElementById(`amt-${u}`).value = '');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (checkedBoxes.length &gt; 0 &amp;&amp; total &gt; 0) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const avg = (total / checkedBoxes.length).toFixed(0);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>checkedBoxes.forEach(cb =&gt; document.getElementById(`amt-${cb.dataset.user}`).value = avg);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function addTransaction() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const desc = document.getElementById('billDesc').value || "款項項目";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const payer = document.getElementById('payerSelect').value;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const splits = {};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let total = 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>users.forEach(u =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const val = parseFloat(document.getElementById(`amt-${u}`).value) || 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (val &gt; 0) { splits[u] = val; total += val; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (total &lt;= 0) return alert("請輸入總金額並選擇分攤參與者");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transactions.push({ id: Date.now(), desc, payer, total, splits });</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>document.getElementById('billDesc').value = '';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>document.getElementById('totalAmountInput').value = '';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>saveData(); updateUI(); renderHistory();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function startEditing(id) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>editingId = id;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>renderHistory();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function confirmUpdate(id) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const trans = transactions.find(t =&gt; t.id === id);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (trans) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const card = document.querySelector(`[data-id="${id}"]`);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>trans.desc = card.querySelector('.edit-desc').value;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>trans.payer = card.querySelector('.edit-payer').value;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>trans.total = parseFloat(card.querySelector('.edit-total').value) || 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>editingId = null;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>saveData(); renderHistory();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function deleteTransaction(id) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if(confirm("確定刪除此筆款項紀錄？")) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>transactions = transactions.filter(t =&gt; t.id !== id);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (editingId === id) editingId = null;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>saveData(); renderHistory();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function renderHistory() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const historyDiv = document.getElementById('transactionHistory');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (transactions.length === 0) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>historyDiv.innerHTML = '&lt;p class="text-slate-400 text-center py-8 text-sm italic"&gt;目前尚未有任何款項紀錄&lt;/p&gt;';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>historyDiv.innerHTML = transactions.map(t =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const isEditing = editingId === t.id;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const splitters = Object.keys(t.splits).join(', ');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>return `</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div data-id="${t.id}" class="bg-white p-4 rounded-2xl border-2 transition-all duration-300 ${isEditing ? 'border-indigo-500 shadow-md ring-4 ring-indigo-50' : 'border-slate-100'}"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="flex justify-between items-center mb-3"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>${isEditing ?<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>`&lt;input class="edit-desc font-bold text-slate-800 outline-none border-b border-indigo-400 bg-transparent w-2/3 py-1" value="${t.desc}"&gt;` :<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>`&lt;span class="font-bold text-slate-800 w-2/3 truncate py-1"&gt;${t.desc}&lt;/span&gt;`</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="flex gap-2"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>${isEditing ?<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>`&lt;button onclick="confirmUpdate(${t.id})" class="text-emerald-500 bg-emerald-50 w-8 h-8 rounded-full flex items-center justify-center hover:bg-emerald-100 transition-colors"&gt;&lt;i class="fas fa-check"&gt;&lt;/i&gt;&lt;/button&gt;` :<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>`&lt;button onclick="startEditing(${t.id})" class="text-slate-400 hover:text-indigo-500 w-8 h-8 rounded-full flex items-center justify-center transition-colors"&gt;&lt;i class="fas fa-pencil-alt text-xs"&gt;&lt;/i&gt;&lt;/button&gt;`</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;button onclick="deleteTransaction(${t.id})" class="text-slate-300 hover:text-red-500 w-8 h-8 rounded-full flex items-center justify-center transition-colors"&gt;&lt;i class="fas fa-trash-alt text-xs"&gt;&lt;/i&gt;&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="grid grid-cols-2 gap-4 text-xs mb-3"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="bg-slate-50 p-2 rounded-xl border border-slate-100"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;label class="text-[9px] font-black text-slate-400 uppercase block mb-1"&gt;付款人&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>${isEditing ?<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>`&lt;select class="edit-payer bg-transparent w-full font-bold text-slate-700 outline-none"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>${users.map(u =&gt; `&lt;option value="${u}" ${u === t.payer ? 'selected' : ''}&gt;${u}&lt;/option&gt;`).join('')}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/select&gt;` :<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>`&lt;span class="font-bold text-slate-700 block mt-1"&gt;${t.payer}&lt;/span&gt;`</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="bg-slate-50 p-2 rounded-xl border border-slate-100"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;label class="text-[9px] font-black text-slate-400 uppercase block mb-1 text-right"&gt;金額&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div class="flex items-center justify-end"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;span class="text-emerald-600 font-bold mr-1"&gt;$&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>${isEditing ?<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>`&lt;input type="number" class="edit-total w-full text-right font-black text-emerald-600 outline-none bg-transparent" value="${t.total}"&gt;` :<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>`&lt;span class="font-black text-emerald-600"&gt;${t.total}&lt;/span&gt;`</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="text-[10px] text-slate-400 flex items-center gap-1"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;i class="fas fa-user-friends opacity-50"&gt;&lt;/i&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;span class="truncate"&gt;分款人: ${splitters}&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>`}).join('');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function calculateSettlement() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let balances = {};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>users.forEach(u =&gt; balances[u] = 0);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transactions.forEach(t =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>balances[t.payer] += t.total;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const splitCount = Object.keys(t.splits).length;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (splitCount &gt; 0) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const perPerson = t.total / splitCount;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>for (let user in t.splits) balances[user] -= perPerson;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let creditors = [], debtors = [];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>for (let user in balances) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (balances[user] &gt; 0.1) creditors.push({ name: user, amt: balances[user] });</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>else if (balances[user] &lt; -0.1) debtors.push({ name: user, amt: Math.abs(balances[user]) });</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let results = [];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let textOutput = "分帳結果\n";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let i = 0, j = 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>while (i &lt; debtors.length &amp;&amp; j &lt; creditors.length) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>let d = debtors[i], c = creditors[j], amt = Math.round(Math.min(d.amt, c.amt));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (amt &gt; 0) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>results.push(`</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="flex justify-between items-center bg-indigo-50 p-4 rounded-xl border border-indigo-100 text-sm"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;span class="font-bold text-slate-700"&gt;${d.name} &lt;i class="fas fa-long-arrow-alt-right text-indigo-300 mx-3"&gt;&lt;/i&gt; ${c.name}&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;span class="text-indigo-600 font-black text-xl"&gt;$${amt}&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>`);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>textOutput += `👉 ${d.name} ➔ 給 ${c.name} $${amt}\n`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>d.amt -= amt; c.amt -= amt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (d.amt &lt;= 0.5) i++;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (c.amt &lt;= 0.5) j++;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>lastResultText = textOutput.trim();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>document.getElementById('resultOutput').innerHTML = results.length ? results.join('') : '&lt;p class="text-center text-slate-400 py-6"&gt;🎉 目前帳目平衡，不需給錢&lt;/p&gt;';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (results.length) document.getElementById('copyBtn').classList.remove('hidden');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>else document.getElementById('copyBtn').classList.add('hidden');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function copyToLine() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (!lastResultText) return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>navigator.clipboard.writeText(lastResultText).then(() =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const btn = document.getElementById('copyBtn');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const originalHtml = btn.innerHTML;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>btn.innerHTML = '&lt;i class="fas fa-check mr-1"&gt;&lt;/i&gt; 已複製！';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>btn.classList.replace('bg-emerald-100', 'bg-emerald-500');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>btn.classList.replace('text-emerald-700', 'text-white');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>setTimeout(() =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>btn.innerHTML = originalHtml;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>btn.classList.replace('bg-emerald-500', 'bg-emerald-100');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>btn.classList.replace('text-white', 'text-emerald-700');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}, 2000);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
